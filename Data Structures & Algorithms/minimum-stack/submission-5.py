@@ -1,0 +1,29 @@
+class MinStack:
+
+    def __init__(self):
+        self.stack = []
+        self.minStack = []
+        
+
+    def push(self, val: int) -> None:
+        self.stack.append(val)
+        self.minStack.append(min(val, self.minStack[-1]) if self.minStack else val)
+        
+
+    def pop(self) -> None:
+        self.minStack.pop()
+        return self.stack.pop()
+        
+
+    def top(self) -> int:
+        return self.stack[-1]
+        
+
+    def getMin(self) -> int:
+        return self.minStack[-1]
+        
+# have a normal stack
+# have a min stack
+# --> how to update the min stack in O(1) time
+# [1,2,0]
+#[0,1,2]
